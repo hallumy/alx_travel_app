@@ -14,20 +14,20 @@ This guide outlines the steps to set up a Django project for the "Alx Travel App
 - Create a new Django project named `alx_travel_app`.
 
 
-django-admin startproject alx_travel_app
+    django-admin startproject alx_travel_app
 
 Create an App within the Project
 
-    Inside the alx_travel_app project, create an app named listings:
+Inside the alx_travel_app project, create an app named listings:
 
-cd alx_travel_app
-python manage.py startapp listings
+    cd alx_travel_app
+    python manage.py startapp listings
 
 Install Necessary Packages
 
-    Install the required dependencies using pip.
+Install the required dependencies using pip.
 
-pip install django djangorestframework django-cors-headers celery rabbitmq drf-yasg
+    pip install django djangorestframework django-cors-headers celery rabbitmq drf-yasg
 
 Make sure that you're in a virtual environment (optional but recommended).
 
@@ -35,19 +35,19 @@ Make sure that you're in a virtual environment (optional but recommended).
 
 #### Configure for REST Framework and CORS Headers
 
-    Open settings.py and add 'rest_framework' and 'corsheaders' to the INSTALLED_APPS:
+Open settings.py and add 'rest_framework' and 'corsheaders' to the INSTALLED_APPS:
 
-INSTALLED_APPS = [
-    'rest_framework',
-    'corsheaders',
-    'listings', 
-]
+    INSTALLED_APPS = [
+        'rest_framework',
+        'corsheaders',
+        'listings', 
+    ]
 
-    Add CORS middleware to the MIDDLEWARE list in settings.py:
+Add CORS middleware to the MIDDLEWARE list in settings.py:
 
-MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
-]
+    MIDDLEWARE = [
+        'corsheaders.middleware.CorsMiddleware',
+    ]
 
 
 Set up the Database Configuration for MySQL
