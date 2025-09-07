@@ -52,60 +52,60 @@ MIDDLEWARE = [
 
 Set up the Database Configuration for MySQL
 
-    Install mysqlclient for connecting to a MySQL database:
+Install mysqlclient for connecting to a MySQL database:
 
-pip install mysqlclient
+    pip install mysqlclient
 
-    Use the django-environ package to handle database credentials securely. Install django-environ:
+Use the django-environ package to handle database credentials securely. Install django-environ:
 
-pip install django-environ
+    pip install django-environ
 
-    In settings.py, add the following lines at the top to load environment variables:
+In settings.py, add the following lines at the top to load environment variables:
 
-import environ
+    import environ
 
-# Initialize environment variables
-env = environ.Env()
-environ.Env.read_env()  
+    # Initialize environment variables
+    env = environ.Env()
+    environ.Env.read_env()  
 
-# Database configuration
-DATABASES = {
-    'default': env.db(),
-}
+    # Database configuration
+    DATABASES = {
+        'default': env.db(),
+    }
 
 
 3. Add Swagger Documentation
 Install drf-yasg
 
-    Install the drf-yasg package for Swagger API documentation:
+Install the drf-yasg package for Swagger API documentation:
 
-pip install drf-yasg
+    pip install drf-yasg
 
 Configure Swagger for Auto Documentation
 
-    Open urls.py and add the following configuration to enable Swagger documentation:
+Open urls.py and add the following configuration to enable Swagger documentation:
 
-from rest_framework import permissions
-from drf_yasg.views import get_schema_view
-from drf_yasg import openapi
-from django.urls import path
+    from rest_framework import permissions
+    from drf_yasg.views import get_schema_view
+    from drf_yasg import openapi
+    from django.urls import path
 
-# Set up Swagger schema view
-schema_view = get_schema_view(
-    openapi.Info(
-        title="Alx Travel API",
-        default_version='v1',
-        description="API documentation for the Alx Travel Project",
-        contact=openapi.Contact(email="contact@alxtravel.com"),
-        license=openapi.License(name="BSD License"),
-    ),
-    public=True,
-    permission_classes=(permissions.AllowAny,),
-)
+    # Set up Swagger schema view
+    schema_view = get_schema_view(
+        openapi.Info(
+            title="Alx Travel API",
+            default_version='v1',
+            description="API documentation for the Alx Travel Project",
+            contact=openapi.Contact(email="contact@alxtravel.com"),
+            license=openapi.License(name="BSD License"),
+        ),
+        public=True,
+        permission_classes=(permissions.AllowAny,),
+    )
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='swagger-schema'),
-]
+    urlpatterns = [
+        path('admin/', admin.site.urls),
+        path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='swagger-schema'),
+    ]
 
 This will make the Swagger UI available at http://localhost:8000/swagger/ once you run the server.
