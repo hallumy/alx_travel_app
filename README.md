@@ -11,8 +11,7 @@ This guide outlines the steps to set up a Django project for the "Alx Travel App
 ### 1. **Create a Django Project**
 
 #### Set up the Django Project
-- Create a new Django project named `alx_travel_app`.
-
+Create a new Django project named `alx_travel_app`.
 
     django-admin startproject alx_travel_app
 
